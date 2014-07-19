@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">TemperatureConverter</string>
+
+    <string name="message">Enter Temperature</string>
+    <string name="celsius">CELSIUS</string>
+    <string name="fahrenheit">FAHRENHEIT</string>
+
+</resources>
