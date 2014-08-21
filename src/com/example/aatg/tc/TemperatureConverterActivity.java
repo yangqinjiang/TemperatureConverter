@@ -19,7 +19,7 @@ public class TemperatureConverterActivity extends Activity {
 	private TextView mCelsiusLabel;
 	private TextView mFahrenheitLabel;
 
-	// ÄÚ²¿Àà
+	// å†…éƒ¨ç±»
 	public class TemperatureChangedWatcher implements TextWatcher {
 
 		private EditNumber mSource;
@@ -27,7 +27,7 @@ public class TemperatureConverterActivity extends Activity {
 		private OP mOp;
 
 		public TemperatureChangedWatcher(OP op) {
-			// ¸ù¾İopÖµµÄ²»Í¬,¶ÔÓ¦ÓÚ²»Í¬µÄsource , dest
+			// æ ¹æ®opå€¼çš„ä¸åŒ,å¯¹åº”äºä¸åŒçš„source , dest
 			if (op == OP.C2F) {
 				this.mSource = mCelsius;
 				this.mDest = mFahrenheit;
@@ -52,7 +52,7 @@ public class TemperatureConverterActivity extends Activity {
 
 		@Override
 		public void afterTextChanged(Editable s) {
-			// Èç¹ûdestÄ¿±êÊäÈë¿òÒÑ¾­focus,Ôò·µ»Ø
+			// å¦‚æœdestç›®æ ‡è¾“å…¥æ¡†å·²ç»focus,åˆ™è¿”å›
 			if (!mDest.hasWindowFocus() || mDest.hasFocus() || s == null) {
 				return;
 			}
@@ -63,14 +63,14 @@ public class TemperatureConverterActivity extends Activity {
 			}
 			try {
 				double temp = Double.parseDouble(str);
-				// ¸ù¾İ²»Í¬OP,Ñ¡Ôñ²»Í¬µÄ×ª»»º¯Êı
+				// æ ¹æ®ä¸åŒOP,é€‰æ‹©ä¸åŒçš„è½¬æ¢å‡½æ•°
 				double result = (mOp == OP.C2F) ? TemperatureConverter
 						.celsiusToFahrenheit(temp) : TemperatureConverter
 						.fahrenheitToCelsius(temp);
 				String resultString = String.format(EditNumber.DEFAULT_FORMAT,
 						result);
 				mDest.setNumber(result);
-				mDest.setSelection(resultString.length());// ½«¹â±êÒÆ¶¯µ½ºóÃæ
+				mDest.setSelection(resultString.length());// å°†å…‰æ ‡ç§»åŠ¨åˆ°åé¢
 			} catch (NumberFormatException e) {
 				// WARNING
 				// this is generated while a number is entered,
